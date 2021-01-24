@@ -8,7 +8,7 @@ from colorama import Fore, Back, Style
 
 # Function gets link and removes http or https from link.
 def getLink():
-	link = input("\nPlease input the full url of your webshell:")
+	link = input("\nPlease input the full url of your webshell: ")
 	wrongLink = link.startswith('http://')
 	wrongLink2 = link.startswith('https://')
 	if wrongLink == True:
@@ -64,10 +64,10 @@ def commandName():
 	while answer != 'y':
 		command = input("What did you have as your 'cmd' command? Ex. $_REQUEST['cmd']:")	
 		newLink = link + '?' + command + '='
-		answer = input(f"Just to recap your shell is: {newLink}?(y/n)")	
-		if answer == 'y':
+		answer = input(f"Just to recap your shell is: {newLink}? (y/n) ")	
+		if answer.lower().startswith('y'):
 			return newLink
-		elif answer == 'n':
+		elif answer.lower().startswith('n'):
 			newLink = link
 			print("Please try again")
 		else: 
